@@ -1,6 +1,6 @@
 {
   "name": "@medley/serve-favicon",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Medley plugin for serving the default favicon",
   "main": "serve-favicon.js",
   "files": [

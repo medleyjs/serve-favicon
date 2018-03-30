@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - '6'
+  - '8'
+  - '9'
+after_success: npm run coveralls
+deploy:
+  provider: npm
+  email: nwoltman@outlook.com
+  on:
+    tags: true
+  api_key:
+    secure: lTnnF8DDpIcImEvMrsvS42ZLFvo2yTgk8aH5mGmO0mWJWVGw3Rat3lL3eOj/J3Rv7n1oT5ra1TL2rwlGdPB2l5IhpKTUbc4N94q8zGaKCMnzcJqtEa/1bVilStCA3WGBvW6OlZ0YbCVvSAnNHZw/Q9j1RXVxR3+bZuB+GXEzW6dqTAxcPPVKObVXxWWhrrDUwB9QpzYwMfFbhOx4/CgSBRuRRRfGZSQn6Q3hfvlXIzSYDA7A+7BtXiwMyneRwme8mZRkz/tCom1mOMF0m5+omef7NNhJVjgs793Uofxixz9tXqkdnmrPIcCtx0aFijCCZiAmJh9/jHd1j9dfe86AmpmDaYd0E2fCMXK4jenNaNOFG6vblwCupha4JTt+Ayxgur1nIir9Cz8cgiY/r6zNlQquRVNChYHTpX11lLtZlOrQExTuh/3SIbttVDSZd5ng1uIxMjuswcGiPRgSHO5NXiJGnI+9g4F6B13u/x9hnJPeKlr11JKMmc8946qYgXVCP5Mowczi/pkiIQ4+ZwKEzUQBuB3qC0Hky381vD1KLoIcDA2rM534BQJH4wfWh5YXL2GTONe3XhycRS8jx3bjAS32VJ4AfjBBhNVAVzwGPYf7O076VAseTTl/2BjadqIKiNkgECL7SO2D+nfkJjNCABmcTTZ3tl0bzYLsZutqI9M=

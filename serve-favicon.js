@@ -1,6 +1,3 @@
-/**
- * Copyright (c) 2017-present, Nathan Woltman. All rights reserved.
- */
 'use strict';
 
 const etag = require('etag');

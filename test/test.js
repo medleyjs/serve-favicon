@@ -16,7 +16,7 @@ describe('serve-favicon', () => {
   it('should accept the `favicon` option as a path string', () => {
     const app = medley();
 
-    app.registerPlugin(serveFavicon, {
+    app.register(serveFavicon, {
       favicon: faviconPath,
     });
 
@@ -32,7 +32,7 @@ describe('serve-favicon', () => {
   it('should accept the `favicon` option as a buffer', () => {
     const app = medley();
 
-    app.registerPlugin(serveFavicon, {
+    app.register(serveFavicon, {
       favicon: faviconContent,
     });
 
@@ -48,7 +48,7 @@ describe('serve-favicon', () => {
   it('should accept the `maxAge` option', () => {
     const app = medley();
 
-    app.registerPlugin(serveFavicon, {
+    app.register(serveFavicon, {
       favicon: faviconContent,
       maxAge: 1,
     });
@@ -68,7 +68,7 @@ describe('serve-favicon', () => {
     it('should send a 200 response', () => {
       const app = medley();
 
-      app.registerPlugin(serveFavicon, {
+      app.register(serveFavicon, {
         favicon: faviconContent,
       });
 
@@ -94,7 +94,7 @@ describe('serve-favicon', () => {
     it('should send a 304 response if there is no Cache-Control header', () => {
       const app = medley();
 
-      app.registerPlugin(serveFavicon, {
+      app.register(serveFavicon, {
         favicon: faviconContent,
       });
 
@@ -115,7 +115,7 @@ describe('serve-favicon', () => {
     it('should send a 304 response if the Cache-Control header does not contain "no-cache"', () => {
       const app = medley();
 
-      app.registerPlugin(serveFavicon, {
+      app.register(serveFavicon, {
         favicon: faviconContent,
       });
 
@@ -137,7 +137,7 @@ describe('serve-favicon', () => {
     it('should send a 200 response if the Cache-Control header contains "no-cache"', () => {
       const app = medley();
 
-      app.registerPlugin(serveFavicon, {
+      app.register(serveFavicon, {
         favicon: faviconContent,
       });
 

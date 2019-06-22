@@ -8,17 +8,13 @@
 [Medley](https://www.npmjs.com/package/@medley/medley) plugin for serving the
 default favicon (`/favicon.ico`).
 
-
 ## Installation
 
 ```sh
-# npm
 npm install @medley/serve-favicon --save
-
-# yarn
+# or
 yarn add @medley/serve-favicon
 ```
-
 
 ## Usage
 
@@ -28,7 +24,7 @@ const path = require('path');
 
 const app = medley();
 
-app.registerPlugin(require('@medley/serve-favicon'), {
+app.register(require('@medley/serve-favicon'), {
   favicon: path.join(__dirname, 'public', 'favicon.ico')
 });
 ```
@@ -37,26 +33,31 @@ app.registerPlugin(require('@medley/serve-favicon'), {
 
 #### `favicon` (required)
 
-Type: *string* | *Buffer*
+Type: `string` | `Buffer`
 
 Either a path string pointing to the favicon file or a Buffer containing the favicon file.
 
 ```js
+// Using a path string
+app.register(require('@medley/serve-favicon'), {
+  favicon: path.join(__dirname, 'path/to/favicon.ico')
+});
+
 // Using a Buffer
-app.registerPlugin(require('@medley/serve-favicon'), {
-  favicon: fs.readFileSync('./public/favicon.ico')
+app.register(require('@medley/serve-favicon'), {
+  favicon: fs.readFileSync('./path/to/favicon.ico')
 });
 ```
 
 #### `maxAge`
 
-Type: *number*<br>
+Type: `number`<br>
 Default: `31536000` (1 year)
 
 A number **in seconds** indicating how long browsers should cache the favicon.
 
 ```js
-app.registerPlugin(require('@medley/serve-favicon'), {
+app.register(require('@medley/serve-favicon'), {
   favicon: path.join(__dirname, 'public', 'favicon.ico'),
   maxAge: 60 * 60 * 24 * 7 // 1 week
 });

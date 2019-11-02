@@ -2,6 +2,8 @@
   "name": "@medley/serve-favicon",
   "version": "0.1.2",
   "description": "Medley plugin for serving the default favicon",
+  "license": "MIT",
+  "author": "Nathan Woltman <nwoltman@outlook.com>",
   "main": "serve-favicon.js",
   "files": [
     "serve-favicon.js"
@@ -9,36 +11,40 @@
   "engines": {
     "node": ">=6"
   },
-  "license": "MIT",
-  "author": "Nathan Woltman <nwoltman@outlook.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/medleyjs/serve-favicon.git"
-  },
+  "repository": "github:medleyjs/serve-favicon",
   "homepage": "https://github.com/medleyjs/serve-favicon#readme",
-  "bugs": {
-    "url": "https://github.com/medleyjs/serve-favicon/issues"
-  },
+  "bugs": "https://github.com/medleyjs/serve-favicon/issues",
   "keywords": [
     "serve",
     "favicon",
     "medley"
   ],
+  "nyc": {
+    "reporter": [
+      "html",
+      "text-summary"
+    ],
+    "check-coverage": true,
+    "branches": 100,
+    "lines": 100,
+    "statements": 100
+  },
   "dependencies": {
     "etag": "^1.8.1"
   },
   "devDependencies": {
-    "@medley/medley": "~0.12.0",
-    "@medley/self-request": "~0.3.0",
-    "coveralls": "^3.0.4",
-    "eslint": "^5.16.0",
-    "mocha": "^6.1.4",
+    "@medley/medley": "~0.13.0",
+    "@medley/self-request": "~0.4.0",
+    "@nwoltman/eslint-config": "~0.5.1",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
+    "mocha": "^6.2.2",
     "nyc": "^14.1.1"
   },
   "scripts": {
     "lint": "eslint *.js test/*.js",
-    "test-only": "nyc --reporter=html --reporter=text-summary mocha",
-    "test": "npm run lint && npm run test-only",
+    "test-only": "nyc mocha",
+    "test": "eslint *.js test/*.js && nyc mocha",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   }
 }

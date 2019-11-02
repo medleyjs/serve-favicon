@@ -8,7 +8,7 @@ const DEFAULT_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
 function serveFavicon(app, options) {
   const favicon = Buffer.isBuffer(options.favicon)
     ? options.favicon
-    : fs.readFileSync(options.favicon);
+    : fs.readFileSync(options.favicon); // eslint-disable-line no-sync
   const etagValue = etag(favicon);
 
   const maxAge = typeof options.maxAge === 'number'

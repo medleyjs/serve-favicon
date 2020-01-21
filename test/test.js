@@ -14,9 +14,11 @@ const faviconETag = etag(faviconContent);
 
 function makeApp() {
   const app = medley();
+
   app.register(selfRequest, {
-    gotDefaults: {encoding: null},
+    gotDefaults: {responseType: 'buffer'},
   });
+
   return app;
 }
 
@@ -111,7 +113,7 @@ describe('serve-favicon', () => {
         headers: {
           'If-None-Match': faviconETag,
         },
-        encoding: 'utf8',
+        responseType: 'text',
       });
       assert.strictEqual(res.statusCode, 304);
       assert.strictEqual(res.body, '');
@@ -133,7 +135,7 @@ describe('serve-favicon', () => {
           'Cache-Control': 'cache',
           'If-None-Match': faviconETag,
         },
-        encoding: 'utf8',
+        responseType: 'text',
       });
       assert.strictEqual(res.statusCode, 304);
       assert.strictEqual(res.body, '');

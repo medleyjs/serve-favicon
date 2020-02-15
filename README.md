@@ -11,7 +11,7 @@ default favicon (`/favicon.ico`).
 ## Installation
 
 ```sh
-npm install @medley/serve-favicon --save
+npm install @medley/serve-favicon
 # or
 yarn add @medley/serve-favicon
 ```
